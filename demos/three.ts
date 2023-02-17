@@ -15,21 +15,20 @@ class Cube extends Mesh {
   constructor() {
     super();
 
-    const geometry = new BoxGeometry();
-    const material = new MeshStandardMaterial();
-    material.color.set("blue");
+    const geometry = new BoxGeometry(0.001, 3, 2, )
+    const material = new MeshStandardMaterial({color: 'green'})
 
-    this.geometry = geometry;
-    this.material = material;
+    this.geometry = geometry
+    this.material = material
   }
 
-  update() {
-    this.rotation.x += 0.01;
+  update(){
+    this.rotation.x += 0.00;
     this.rotation.y += 0.01;
   }
 
-  dispose() {
-    this.geometry.dispose();
+  dispose(){
+    this.geometry.dispose()
   }
 }
 
@@ -42,15 +41,11 @@ const camera = new PerspectiveCamera(
   1000
 );
 
-camera.position.z = 5;
+camera.position.z = 5
 
 // Add elements
-const ambientLight = new AmbientLight();
-scene.add(ambientLight);
-
 const pointLight = new PointLight();
-
-pointLight.position.set(10, 10, 10);
+pointLight.position.set(1 , 1, 1);
 scene.add(pointLight);
 
 const cube = new Cube();
@@ -73,7 +68,7 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 
-  cube.update();
+  cube.update()
 }
 
 animate();
